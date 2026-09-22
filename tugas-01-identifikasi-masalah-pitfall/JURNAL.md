@@ -2,9 +2,14 @@
 
 > Isi jurnal ini selama proses diskusi berlangsung, bukan ditulis ulang rapi di akhir. Tulis dengan gaya bebas — poin diskusi, kebuntuan, perubahan pikiran.
 
-## [Tanggal diskusi 1]
-- Peserta: [nama-nama yang hadir]
-- Poin diskusi: ...
+## ## [21-09-2026]
+- Peserta: Ida Ayu Putri S. B. dan I Wayan Juanesa R. P.
+- Poin diskusi: 
+    - Menentukan pitfall
+    - Tugek nemu pitfall the network is reliable dan latency is zero
+    - Di bagian yang "# network is always reliable, no need for retry" langsung ketahuan kalau ada yang salah, karena pada soal dikatakan adanya kendala pada aplikasi tapi ini malah dibilang selalu berjalan dengan balik
+    - Pada bagian "tidak ada timeout sama sekali pada pemanggilan antar service" juga langsung ketahuan bahwa ada yang salah di latency nya
+    - 
 - Perbedaan pendapat (jika ada): ...
 
 ## [Tanggal diskusi 2]
