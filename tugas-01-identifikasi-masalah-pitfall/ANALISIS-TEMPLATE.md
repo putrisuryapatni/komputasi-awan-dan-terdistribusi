@@ -57,9 +57,41 @@ Pembayaran lambat -> request pesanan menunggu -> resource/thread tertahan -> sem
 
 ---
 
-## Pitfall 3: [nama pitfall] — ditulis oleh [nama]
+## Pitfall 3: [Always-On Assumption] — ditulis oleh I Wayan Juanesa Ryan Pradita
 
-(ulangi struktur di atas)
+**Bukti di skenario:**
+[Server backend kadang crash total dan perlu di-restart manual.]
+
+**Kenapa ini keliru:** 
+[Karena sistem tidak menganggap bawa server tidak akan mengalami kegagalan dan tidak harus menunggu untuk me-restart ulang oleh manusia.]
+
+**Dampak ke FoodGo:** 
+[Pada kasus yang dimana terjadi pelonjakan orderan yang masuk dikarenakan pada saat itu terdapat promo besar-besaran dan user melakukan transaksi secara bersamaan maka akan melebihi kapasitas resource yang menyebabkan server akan mengalami kewalahan dan tidak sanggup menjalankan tugasnya dan akirnya berhenti.]
+
+**Solusi desain awal:**
+[Sebaiknya FoodGo menambahkan server cadangan supaya jika terjadi crash pada server utama, server cadangan lain bisa membatu untuk melayani user dan sistem yang mengalami crash di perbaharui supaya dapat dijalankan secara otomatis tanpa lagi melakukan restart secara manual oleh manusia.]
+
+**Trade-off:**
+[Dengan adanya restart otomatis untuk server yang crash, tidak menjamin efisien jika penyebab utamanya belum diatasi dengan baik dan juga membutuhkan waktu yang lebih untuk mencari penyebab server menjadi crash.]
+
+---
+
+## Pitfall 4: [Single Point of Failure] — ditulis oleh I Wayan Juanesa Ryan Pradita
+
+**Bukti di skenario:**
+[Saat trafik naik, satu server yang menangani semua modul (pesanan, pembayaran, notifikasi kurir) kewalahan karena semuanya berjalan di satu proses monolitik yang sama.]
+
+**Kenapa ini keliru:**
+[Karena dalam satu server dipaksa untuk mengerjakan pekerjaan terlalu banyak secara bersamaan sehingga melewati batas kapasitas server itu sendiri.]
+
+**Dampak ke FoodGo:**
+[Saat banyaknya pengguna yang mengakses FoodGo pada saat itu maka server akan melayani banyak permintaaan sekaligus dalam waktu yang singkat maka disana server akan mengalami kewalahan sehingga proses seperti memesan, melakukan pembayaran, dll akan terganggu dan juga aplikasi akan menjadi lambat bahkan hingga terjadi error.]
+
+**Solusi desain awal:**
+[Perlu adanya server cadangan untuk membantu server utama untuk melayani permintaan pengguna dan juga perlu menggunakan sistem antrean supaya dapat diproses secara satu per satu sesuai kapasitas server.]
+
+**Trade-off:**
+[Beberapa permintaan diperlukan waktu lama untuk menunggu antrean. Selain itu perlu biaya yang lebih karena pengelolaan sistem yang bertambah dengan adanya penambahan server cadangan.]
 
 ---
 
