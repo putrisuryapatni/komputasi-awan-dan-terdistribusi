@@ -97,4 +97,15 @@ Pembayaran lambat -> request pesanan menunggu -> resource/thread tertahan -> sem
 
 ## Kesimpulan Kelompok
 
-[Ringkasan: jika FoodGo memperbaiki ketiga pitfall ini, apa arsitektur yang disarankan secara garis besar? Kaitkan dengan Tugas 2.]
+Empat pitfall yang dibahas menunjukkan bahwa sistem FoodGo yang masih menggunakan satu sistem besar cukup berisiko. Ketika jumlah pengguna meningkat atau terjadi gangguan jaringan, aplikasi bisa menjadi lambat, mengalami crash, bahkan tidak bisa digunakan karena semua modul berada dalam satu sistem. Dengan begitu banyak masalah yang terjadi, sistem tetap menganggap bahwa setiap layanan selalu tersedia, jaringan selalu berjalan dengan baik, dan komunikasi antar-modul tidak mengalami keterlambatan.
+
+Untuk mengatasi masalah tersebut, FoodGo dapat menggunakan sistem yang lebih terpisah dengan menggabungkan **SOA (Service-Oriented Architecture)** dan **Publish-Subscribe (Pub-Sub)**.
+
+**1. Memisahkan modul dengan SOA**
+Modul Pesanan, Pembayaran, Resto, dan Kurir dibuat menjadi layanan yang terpisah. Jadi, jika modul Pembayaran mengalami masalah, modul lainnya masih dapat berjalan. Selain itu, setiap komunikasi antar-modul diberi batas waktu (*timeout*) agar satu modul tidak menunggu terlalu lama.
+
+**2. Menggunakan antrean pesan dengan Pub-Sub**
+Komunikasi antar-modul dilakukan secara tidak langsung. Misalnya, ketika ada pesanan baru, modul Pesanan mengirimkan informasi ke *message broker*. Setelah itu, modul Resto dan Kurir mengambil informasi tersebut untuk diproses. Cara ini membantu mengurangi beban server ketika jumlah pesanan meningkat secara tiba-tiba.
+
+**Hubungannya dengan Tugas 2**
+Analisis ini menjadi dasar untuk perancangan FoodGo pada Tugas 2. SOA digunakan untuk proses yang membutuhkan respons cepat, seperti pembayaran. Sementara itu, Pub-Sub digunakan untuk proses yang tidak harus langsung, seperti mengirim notifikasi kepada resto dan kurir. Dengan sistem ini, setiap modul dapat dikembangkan atau diperbaiki tanpa terlalu mengganggu modul lainnya.
