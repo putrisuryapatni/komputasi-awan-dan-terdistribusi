@@ -5,15 +5,18 @@
 ## ## [21-09-2026]
 - Peserta: Ida Ayu Putri S. B. dan I Wayan Juanesa R. P.
 - Poin diskusi: 
-    - Menentukan pitfall
+    - Nentuin pitfall yang mana aja dulu
     - Tugek nemu pitfall the network is reliable dan latency is zero
     - Di bagian yang "# network is always reliable, no need for retry" langsung ketahuan kalau ada yang salah, karena pada soal dikatakan adanya kendala pada aplikasi tapi ini malah dibilang selalu berjalan dengan balik
     - Pada bagian "tidak ada timeout sama sekali pada pemanggilan antar service" juga langsung ketahuan bahwa ada yang salah di latency nya
     - 
 - Perbedaan pendapat (jika ada): ...
 
-## [Tanggal diskusi 2]
-- ...
+## [22-9-2026]
+- Peserta: Ida Ayu Putri S. B. dan I Wayan Juanesa R. P.
+- Poin diskusi :
+    - Belajar cara githubnya karena masih bingung dan ada sedikit error
+    - Pastiin lagi semua analisisnya udah bener, cek lagi solusi yang kita kasi udah sesuai sama ketentuan yang diminta
 
 ## Review Silang
 - [Nama] mengomentari analisis [Nama lain]: ...
