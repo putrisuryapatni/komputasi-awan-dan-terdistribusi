@@ -4,7 +4,7 @@
 
 | Nama | NIM | Kontribusi |
 |---|---|---|
-| Ida Ayu Putri Suryapatni Basundari | 103072400068 | Code order_simulator.py awal (tanpa lock) dan penjelasan setelah menggunakan lock |
+| Ida Ayu Putri Suryapatni Basundari | 103072400068 | Code order_simulator.py awal (tanpa lock), melengkapi TODO 1-3 order_simulator.py, dan memberikan penjelasan setelah menggunakan lock |
 | I Wayan Juanesa Ryan Pradita | 103072430012 | Melengkapi code order_simulatorpy (dengan lock), melengkapi TODO yang berada di Dockerfile, me-run docker dan penjelasan saat tanpa lock |
 
 **Materi terkait:** Threading, Virtualization, Containers.
