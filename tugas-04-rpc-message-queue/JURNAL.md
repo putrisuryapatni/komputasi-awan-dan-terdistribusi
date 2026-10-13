@@ -8,6 +8,8 @@
 
 ## Jalur yang dipilih
 - [RPC ], alasan: ...
+![Server](bukti/server.png)
+![Client](bukti/client.png)
 ![Hasil Running Program](bukti/hasil-running.png)
 
 ## Kendala teknis
