@@ -3,7 +3,7 @@
 
 | Nama | NIM | Kontribusi |
 |---|---|---|
-| Ida Ayu Putri Suryapatni Basundari | 103072400068 | Melengkapi code client dan server, running code |
+| Ida Ayu Putri Suryapatni Basundari | 103072400068 | Melengkapi code (TODO) client dan server, running code |
 | I Wayan Juanesa Ryan Pradita | 103072430012 |  |
 
 ## Jalur yang dipilih
