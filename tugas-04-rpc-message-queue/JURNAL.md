@@ -8,7 +8,7 @@
 
 ## Jalur yang dipilih
 - [RPC ], alasan: ...
-- (bukti/hasil-running.png)
+![Hasil Running Program](bukti/hasil-running.png)
 
 ## Kendala teknis
 - Error saat setup (mis. koneksi RabbitMQ ditolak, port bentrok): ...
