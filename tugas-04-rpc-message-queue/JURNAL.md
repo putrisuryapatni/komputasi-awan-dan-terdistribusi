@@ -3,22 +3,18 @@
 
 | Nama | NIM | Kontribusi |
 |---|---|---|
-| Ida Ayu Putri Suryapatni Basundari | 103072400068 | Melengkapi code (TODO) client dan server, running code |
+| Ida Ayu Putri Suryapatni Basundari | 103072400068 | Menyelesaikan semua code (TODO) client dan server, running code, analisis kendala saat running code |
 | I Wayan Juanesa Ryan Pradita | 103072430012 | Memilih dan menerapkan Jalur A (RPC Sinkron), serta mengatasi kendala saat menjalankan program |
 
 ## Jalur yang dipilih
-- [RPC ], alasan: Jalur A — RPC (Sinkron), karena transaksi antara modul Pesanan sama Pembayaran di FoodGo butuh kepastian yang langsung (real-time). Jadi waktu user cek saldo atau bayar, modul Pesanan emang harus nungguin balasan dari modul Pembayaran dulu (sifatnya blocking) biar tau transaksinya sukses atau gagal sebelum pesanan diproses.
-![Server](bukti/server.png)
-![Client](bukti/client.png)
-![Hasil Running Program](bukti/hasil-running.png)
+- [RPC], alasan: karena transaksi antara modul Pesanan sama Pembayaran di FoodGo butuh kepastian yang langsung (real-time). Jadi waktu user cek saldo atau bayar, modul Pesanan emang harus nungguin balasan dari modul Pembayaran dulu (sifatnya blocking) biar tau transaksinya sukses atau gagal sebelum pesanan diproses.
+- ![Server](bukti/server.png)
+- ![Client](bukti/client.png)
+- ![Hasil Running Program](bukti/hasil-running.png)
 
 ## Kendala teknis
 - Error Path/Folder ([Errno 2] No such file or directory): Sempet ketemu error ini pas awal-awal mau run kodenya. Penyebabnya karena posisi terminal belum masuk ke direktori/folder proyek yang pas, jadi Python nggak nemu file server.py atau client.py-nya.
-- Masalah Run via Tombol Play VS Code: Pas klik tombol Play (segitiga) di VS Code, ternyata yang jalan cuma file yang lagi terbuka doang (server.py), dan terminalnya langsung kepakai terus buat server (blocking). Solusinya, kita harus buka 2 tab terminal terpisah di VS Code—satu terminal khusus buat nyalain server.py, dan satu lagi khusus buat run client.py.
-
-## Uji "pesan tidak hilang" (khusus Jalur B)
-- Langkah uji: matikan consumer → jalankan publisher → nyalakan consumer
-- Hasil yang diamati: ...
+- Masalah Run via Tombol Play VS Code: Pas klik tombol Play (segitiga) di VS Code, ternyata yang jalan cuma file yang lagi terbuka doang (server.py), dan terminalnya langsung kepakai terus buat server (blocking). Solusinya, kita harus buka 2 tab terminal terpisah di VS Code, satu terminal khusus buat nyalain server.py, dan satu lagi khusus buat run client.py.
 
 ## Log Penggunaan AI (Level 2)
 
