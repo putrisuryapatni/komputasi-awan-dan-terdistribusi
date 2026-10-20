@@ -25,7 +25,7 @@ class Node:
         # peers: dict {peer_id: peer_port} untuk semua node LAIN
         self.peers = peers
         self.leader_id = None
-        self.lock = threading.Lock()
+        self.ok_event = threading.Event()
 
     # ---------- Infrastruktur jaringan (SUDAH LENGKAP, jangan diubah) ----------
 
@@ -76,10 +76,10 @@ class Node:
                         self.send_message(peer_port, "OK")
                     threading.Thread(target=self.start_election, daemon=True).start()
             elif msg_type == "OK":
-                print("[Node {self.node_id}] Menerima pesan 'OK' dari node {sender_id}")     
+                print(f"[Node {self.node_id}] Menerima pesan 'OK' dari node {sender_id}")     
                 self.ok_event.set()
-            elif msg_type == "COORDINATION":
-                print("[Node {self.node_id}] Menerima pesan 'COORDINATION' dari node {sender_id}")     
+            elif msg_type == "COORDINATOR":
+                print(f"[Node {self.node_id}] Menerima pesan 'COORDINATOR' dari node {sender_id}")     
                 self.leader_id = sender_id
             elif msg_type == "PING":
                 pass
@@ -101,7 +101,7 @@ class Node:
             return
 
         sent_any = False
-        for pid, port in higher_peers.item():
+        for pid, port in higher_peers.items():
             success = self.send_message(port, "ELECTION")
             if success:
                 sent_any = True
@@ -123,8 +123,8 @@ class Node:
             self.leader_id = self.node_id
         print(f"[Node {self.node_id}] TODO: broadcast COORDINATOR, saya jadi leader")
         
-        for pid, port in self.peers.item():
-            self.send_message(port, "COORDINATION")
+        for pid, port in self.peers.items():
+            self.send_message(port, "COORDINATOR")
         
     def monitor_leader(self):
         """Loop periodik: cek apakah leader masih hidup, trigger election jika mati."""
