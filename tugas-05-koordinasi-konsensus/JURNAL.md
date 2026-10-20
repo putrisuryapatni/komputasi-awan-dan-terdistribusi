@@ -7,7 +7,7 @@
 | I Wayan Juanesa Ryan Pradita | 103072430012 | Me-run kode dan melanjutkan mengisi skenario 1 & 2 serta analisis pada file readme |
 
 ## Implementasi Bully
-- Kendala saat mengisi TODO 1-4: Memahami cara kerja sinkronisasi thread menggunakan threading.Event() agar node bisa menunggu balasan "OK" dari node dengan ID lebih tinggi dengan tepat waktu, serta memastikan penanganan message PING di monitor_leader tidak saling menimpa status. Terkendala inisialisasi attribute, karena masih berusaha memahami bagaimana cara inisialisasi tiap atribute.
+- Kendala saat mengisi TODO 1-4: Memahami cara kerja sinkronisasi thread menggunakan threading.Event() agar node bisa menunggu balasan "OK" dari node dengan ID lebih tinggi dengan tepat waktu, serta memastikan penanganan message PING di monitor_leader tidak saling menimpa status. Terkendala inisialisasi attribute, karena masih berusaha memahami bagaimana cara inisialisasi tiap attribute.
 
 ## Skenario 1: Start normal
 - Leader yang terpilih: Node 5 (ID tertinggi)
