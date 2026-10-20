@@ -25,6 +25,7 @@ class Node:
         # peers: dict {peer_id: peer_port} untuk semua node LAIN
         self.peers = peers
         self.leader_id = None
+        self.lock = threading.Lock()
         self.ok_event = threading.Event()
 
     # ---------- Infrastruktur jaringan (SUDAH LENGKAP, jangan diubah) ----------
