@@ -125,6 +125,7 @@ class ChordRing:
         # TODO 8: gunakan find_successor(key_hash) untuk menemukan node
         # penanggung jawab, lalu kembalikan ip_kurir dari self.data jika ada.
         responsible_node = self.find_successor(key_hash)
+        print(f"  lookup({kurir_id}): hash={key_hash} -> node id={responsible_node}")
         if key_hash in self.data:
             _, ip_kurir = self.data[key_hash]
             return ip_kurir
@@ -148,15 +149,16 @@ def main():
     print("\n--- Lookup sebelum perubahan topologi ---")
     print("kurir-001 ->", ring.lookup("kurir-001"))
     print("kurir-002 ->", ring.lookup("kurir-002"))
+    print("kurir-003 ->", ring.lookup("kurir-003"))
 
     print("\n--- Node baru bergabung ---")
-    ring.join("node-medan-1", "10.0.0.5")
+    ring.join("node-semarang-1", "10.0.0.5")   
     print("kurir-001 ->", ring.lookup("kurir-001"))
 
     print("\n--- Sebuah node keluar ---")
-    ring.leave("node-jakarta-1")
-    print("kurir-001 ->", ring.lookup("kurir-001"))
-    print("kurir-002 ->", ring.lookup("kurir-002"))
+    ring.leave("node-surabaya-1")
+    print("kurir-001 ->", ring.lookup("kurir-001"))        
+    print("kurir-003 ->", ring.lookup("kurir-003"))
 
 
 if __name__ == "__main__":
