@@ -1,8 +1,8 @@
 # Jurnal Proses — Tugas 6
 
 ## Implementasi find_successor
-- Kesalahan pertama yang ditemui (mis. lupa wrap-around di ring): ...
-- Cara memperbaikinya: ...
+- Kesalahan pertama yang ditemui (mis. lupa wrap-around di ring): Pada fungsi find_successor(), awalnya pencarian hanya menggunakan operator perbandingan lebih besar atau sama dengan ($\ge$) secara linier pada daftar ID node yang diurutkan (sorted_nodes). Ketika nilai hash dari sebuah key (ID kurir) atau node baru lebih besar daripada ID node maksimum di dalam ring (misalnya key bernilai 200, sedangkan ID node terbesar di ring hanya sampai 177), fungsi gagal mengembalikan node penanggung jawab karena tidak ada node yang memenuhi syarat $\ge 200$, sehingga menghasilkan error atau nilai None akibat tidak diterapkannya logika wrap-around kembali ke node terkecil di awal ring.
+- Cara memperbaikinya: Menambahkan logika wrap-around pada fungsi find_successor(). Setelah iterasi pengecekan node selesai dan tidak ditemukan node yang bernilai $\ge \text{key\_hash}$, fungsi secara otomatis mengembalikan node pertama (dengan ID terkecil) di dalam daftar terurut (sorted_nodes[0]), merepresentasikan sifat topologi ring melingkar (seperti jam dinding yang berputar kembali ke angka 0 setelah mencapai nilai maksimum).
 
 ## Skenario join/leave
 - Hasil sebelum & sesudah node baru bergabung: 
