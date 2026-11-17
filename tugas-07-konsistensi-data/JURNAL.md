@@ -10,7 +10,10 @@ Client-Centric Consistency (Read-Your-Writes): Jalan tengah yang paling masuk ak
 Alasan: Model ini paling pas karena memberikan keseimbangan yang ideal antara kecepatan akses (performance) dan keamanan data keuangan (correctness). Pengguna bisa top-up di satu kota dan langsung belanja di kota lain dengan mulus tanpa takut transaksinya ditolak gara-gara saldo telat sinkron, sementara sistem tetap efisien tanpa beban latensi yang berlebihan.
 
 ## Simulasi (jika dikerjakan)
-- Hasil skenario naif vs Read-Your-Writes: ...
+- Hasil skenario naif vs Read-Your-Writes:
+![running](bukti/running-TODO.png)
+- Skenario Naif (Tanpa Read-Your-Writes): Terjadi inconsistent read (bug) di mana pembacaan saldo dari server Bandung menghasilkan nilai 0.0 (data basi/stale) karena proses replikasi dari server Jakarta masih tertunda.
+- Skenario dengan Read-Your-Writes: Sistem mendeteksi bahwa versi lokal di server Bandung masih tertinggal (versi 1 di bawah versi minimal 2), sehingga server menahan proses dan menunggu hingga sinkronisasi selesai, menghasilkan pembacaan saldo yang selalu benar yaitu 70000.0 secara akurat.
 
 ## Log Penggunaan AI (Level 2)
 
